@@ -47,8 +47,13 @@ public class SignInFragment extends Fragment {
             Navigation.findNavController(requireView()).navigate(
                     SignInFragmentDirections
                             .actionSignInFragmentToMainActivity(
-
+                                generateJwt(binding.editEmail.getText().toString())
                             ));
+
+            //This tells the containing Activity that we are done with it.
+            //It will not be added to backstack.
+            getActivity().finish();
+
         });
     }
 
